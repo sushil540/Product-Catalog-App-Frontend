@@ -1,18 +1,27 @@
-import React,{useEffect, useState} from 'react'
+import React,{ useState} from 'react'
 import Navbar from './components/Navbar'
 
 const App = (props) =>{
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false) 
+
   const handleIsLoggedIn =() =>{
-    setIsLoggedIn(!isLoggedIn)
+    // if(localStorage.getItem('token')){/
+      setIsLoggedIn(!isLoggedIn)
+      // handleIsLoggedIn()
+    // }
   }
 
-  useEffect(()=>{
-      if(localStorage.getItem('token')){
-        handleIsLoggedIn()
-      } 
-  },[])
+  // useCallback(()=>{
+  // handleIsLoggedIn()
+  //     setIsLoggedIn(!isLoggedIn)
+  //   }
+  // },[isLoggedIn])
+
+  setTimeout(()=>{
+    if(localStorage.getItem('token')){
+      setIsLoggedIn(true)
+    }
+  },0)
 
   return (      
     <div

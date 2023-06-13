@@ -11,7 +11,7 @@ import Settings from './Settings'
 import ProtectedRoute from './helper/ProtectedRoute'
 
 const Navbar = (props) =>{
-    const { handleIsLoggedIn, isLoggedIn } = props
+    const { isLoggedIn, handleIsLoggedIn } = props
     
     let role
     if(localStorage.getItem('token')){
@@ -47,7 +47,8 @@ const Navbar = (props) =>{
             <Route path="/login" render={(props)=>{
                 return <Login
                         {...props}
-                        handleIsLoggedIn={handleIsLoggedIn} exact/>}
+                         handleIsLoggedIn={handleIsLoggedIn}
+                         exact/>}
                 } exact/> 
             <PrivateRoute path="/dashboard" component={Dashboard} exact/>
             <ProtectedRoute path="/product" permitted={role} component={AddProduct} exact/> 

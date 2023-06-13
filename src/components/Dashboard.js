@@ -149,6 +149,9 @@ const Dashboard = (props) =>{
                                 <EditProduct
                                     data={show}
                                     handleEditToggle={handleEditToggle}/>
+                                    <button className="btn btn-secondary" onClick={handleEditToggle}>
+                                        Close
+                                    </button>
                                 </div>}
                         </div>
                 <ProductShow 
