@@ -2,7 +2,7 @@ import React from 'react'
 import Login from './Login'
 import Dashboard from './Dashboard'
 import PrivateRoute from './helper/PrivateRoute'
-import { Link, Route, withRouter } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, Route, withRouter, Redirect } from 'react-router-dom/cjs/react-router-dom.min'
 import Swal from 'sweetalert2'
 import Register from './Register'
 import jwt_decode from 'jwt-decode'
@@ -49,7 +49,10 @@ const Navbar = (props) =>{
                         {...props}
                          handleIsLoggedIn={handleIsLoggedIn}
                          exact/>}
-                } exact/> 
+                } exact/>
+            <Route path="*">
+                <Redirect to="/"/>
+            </Route>
             <PrivateRoute path="/dashboard" component={Dashboard} exact/>
             <ProtectedRoute path="/product" permitted={role} component={AddProduct} exact/> 
             <ProtectedRoute path="/setting" permitted={role} component={Settings} exact/>
