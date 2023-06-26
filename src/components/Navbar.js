@@ -50,9 +50,7 @@ const Navbar = (props) =>{
                          handleIsLoggedIn={handleIsLoggedIn}
                          exact/>}
                 } exact/>
-            <Route path="*">
-                <Redirect to="/"/>
-            </Route>
+            <Route path="*" component={Dashboard}/>
             <PrivateRoute path="/dashboard" component={Dashboard} exact/>
             <ProtectedRoute path="/product" permitted={role} component={AddProduct} exact/> 
             <ProtectedRoute path="/setting" permitted={role} component={Settings} exact/>
